@@ -1,7 +1,7 @@
 {
-  "name": "react-library-template",
-  "version": "1.0.0",
-  "description": "",
+  "name": "unstyled-lightbox",
+  "version": "0.0.1",
+  "description": "Simple Unstyled React Lightbox",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "unpkg": "dist/index.umd.js",
@@ -18,7 +18,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
