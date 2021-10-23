@@ -14,6 +14,7 @@ interface BasicLightboxProps {
   }
   imageClassName?: string
   containerClassname?: string
+  hideArrowButtons?: boolean
 }
 
 const BasicLightbox = ({
@@ -24,7 +25,8 @@ const BasicLightbox = ({
   overlayClassname,
   arrowsClassName,
   imageClassName,
-  containerClassname
+  containerClassname,
+  hideArrowButtons = false
 }: BasicLightboxProps) => {
   const [currentImage, setCurrentImage] = useState<ImageProps | undefined>(
     images[0]
@@ -55,26 +57,28 @@ const BasicLightbox = ({
       <ModalOverlay className={overlayClassname} />
 
       <div className={containerClassname}>
-        <button
-          type="button"
-          onClick={prevImage}
-          className={arrowsClassName?.buttons}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={arrowsClassName?.icons}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        {!hideArrowButtons && (
+          <button
+            type="button"
+            onClick={prevImage}
+            className={arrowsClassName?.buttons}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={arrowsClassName?.icons}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+          </button>
+        )}
 
         <div>
           {currentImage != null && (
@@ -86,26 +90,28 @@ const BasicLightbox = ({
           )}
         </div>
 
-        <button
-          type="button"
-          onClick={nextImage}
-          className={arrowsClassName?.buttons}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className={arrowsClassName?.icons}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        {!hideArrowButtons && (
+          <button
+            type="button"
+            onClick={nextImage}
+            className={arrowsClassName?.buttons}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14 5l7 7m0 0l-7 7m7-7H3"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={arrowsClassName?.icons}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
+        )}
       </div>
     </Modal>
   )

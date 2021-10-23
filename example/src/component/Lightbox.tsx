@@ -19,6 +19,7 @@ const Lightbox = () => {
           buttons: 'h-6 w-6 text-white'
         }}
         imageClassName="mx-4"
+        hideArrowButtons
       />
       <img onClick={() => setOpen(true)} src={Image} alt="" />
     </div>
