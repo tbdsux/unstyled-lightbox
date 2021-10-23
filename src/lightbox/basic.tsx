@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, ModalOverlay } from '../component/modal'
+import { Modal, ModalOverlay } from '../component/base'
 import { ImageProps } from './lb'
 
 interface BasicLightboxProps {

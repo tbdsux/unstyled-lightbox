@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 import Lightbox from './component/Lightbox'
+import SModal from './component/SimpleModal'
 import logo from './logo.svg'
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         >
           Learn React
         </a>
+
+        <SModal />
 
         <Lightbox />
       </header>
