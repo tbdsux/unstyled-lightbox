@@ -1,3 +1,5 @@
-import HelloComponent from './component/simple'
+import { Modal } from './component/modal'
+import BasicLightbox from './lightbox/lightbox'
 
-export { HelloComponent }
+export { Modal }
+export { BasicLightbox }
