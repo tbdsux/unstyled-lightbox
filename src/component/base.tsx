@@ -45,22 +45,30 @@ interface ModalProps extends HTMLAttributes<HTMLDivElement> {
 const Modal = (props: ModalProps) => {
   const { onClose, open, children } = props
 
-  const el = useMemo(() => document?.createElement('div'), [])
+  const el = useMemo(
+    () =>
+      typeof window === 'undefined' ? null : document.createElement('div'),
+    []
+  )
 
   useEffect(() => {
-    document?.body.appendChild(el)
+    if (el == null) return
+
+    document.body.appendChild(el)
 
     return () => {
-      document?.body.removeChild(el)
+      document.body.removeChild(el)
     }
   }, [el])
 
-  return createPortal(
-    <ModalProvider onClose={onClose}>
-      {open && <div {...props}>{children}</div>}
-    </ModalProvider>,
-    el
-  )
+  return el == null
+    ? null
+    : createPortal(
+        <ModalProvider onClose={onClose}>
+          {open && <div {...props}>{children}</div>}
+        </ModalProvider>,
+        el
+      )
 }
 
 interface ModalOverlayProps {
