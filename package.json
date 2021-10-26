@@ -1,6 +1,6 @@
 {
   "name": "unstyled-lightbox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple Unstyled Modals and Lightbox for React",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
@@ -17,7 +17,15 @@
     "prepublishOnly": "npm run build",
     "build": "cross-env NODE_ENV=production && rm -rf dist && rollup -c"
   },
-  "keywords": ["unstyled-lightbox", "lightbox", "react-lightbox", "react", "unstyled component", "modal", "lightbox modal"],
+  "keywords": [
+    "unstyled-lightbox",
+    "lightbox",
+    "react-lightbox",
+    "react",
+    "unstyled component",
+    "modal",
+    "lightbox modal"
+  ],
   "author": "TheBoringDude",
   "license": "MIT",
   "dependencies": {
