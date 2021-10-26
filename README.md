@@ -8,6 +8,8 @@ All of the components in this have no default stylings. Control is up to you, it
 
 - **BasicLightBox**
 
+  A basic image lightbox. Animations are not tested if they are guaranteed to work.
+
   ```tsx
   import React, { useState } from 'react'
   import { BasicLightbox } from 'unstyled-lightbox'
@@ -40,6 +42,8 @@ All of the components in this have no default stylings. Control is up to you, it
   ```
 
 - SimpleModal
+
+  A simple modal. Modal stacking is not yet tested and not guaranteed to work.
 
   ```tsx
   import React, { useState } from 'react'
