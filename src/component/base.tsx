@@ -45,13 +45,13 @@ interface ModalProps extends HTMLAttributes<HTMLDivElement> {
 const Modal = (props: ModalProps) => {
   const { onClose, open, children } = props
 
-  const el = useMemo(() => document.createElement('div'), [])
+  const el = useMemo(() => document?.createElement('div'), [])
 
   useEffect(() => {
-    document.body.appendChild(el)
+    document?.body.appendChild(el)
 
     return () => {
-      document.body.removeChild(el)
+      document?.body.removeChild(el)
     }
   }, [el])
 
