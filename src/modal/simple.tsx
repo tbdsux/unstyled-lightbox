@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { Modal, ModalOverlay } from '../component/base'
+import Mount from '../component/mount'
 
 interface SimpleModalProps {
   open: boolean
@@ -16,9 +17,11 @@ const SimpleModal = ({
   overlayClassname
 }: SimpleModalProps) => {
   return (
-    <Modal open={open} onClose={onClose} className={className}>
-      <ModalOverlay className={overlayClassname} /> {children}
-    </Modal>
+    <Mount>
+      <Modal open={open} onClose={onClose} className={className}>
+        <ModalOverlay className={overlayClassname} /> {children}
+      </Modal>
+    </Mount>
   )
 }
 

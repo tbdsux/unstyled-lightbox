@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Modal, ModalOverlay } from '../component/base'
+import Mount from '../component/mount'
 import { ImageProps } from './lb'
 
 interface BasicLightboxProps {
@@ -53,67 +54,69 @@ const BasicLightbox = ({
   }
 
   return (
-    <Modal open={open} onClose={onClose} className={className}>
-      <ModalOverlay className={overlayClassname} />
+    <Mount>
+      <Modal open={open} onClose={onClose} className={className}>
+        <ModalOverlay className={overlayClassname} />
 
-      <div className={containerClassname}>
-        {!hideArrowButtons && (
-          <button
-            type="button"
-            onClick={prevImage}
-            className={arrowsClassName?.buttons}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={arrowsClassName?.icons}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        <div className={containerClassname}>
+          {!hideArrowButtons && (
+            <button
+              type="button"
+              onClick={prevImage}
+              className={arrowsClassName?.buttons}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-          </button>
-        )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={arrowsClassName?.icons}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+            </button>
+          )}
 
-        <div>
-          {currentImage != null && (
-            <img
-              src={currentImage.src}
-              alt={currentImage.alt}
-              className={imageClassName}
-            />
+          <div>
+            {currentImage != null && (
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className={imageClassName}
+              />
+            )}
+          </div>
+
+          {!hideArrowButtons && (
+            <button
+              type="button"
+              onClick={nextImage}
+              className={arrowsClassName?.buttons}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={arrowsClassName?.icons}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
           )}
         </div>
-
-        {!hideArrowButtons && (
-          <button
-            type="button"
-            onClick={nextImage}
-            className={arrowsClassName?.buttons}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={arrowsClassName?.icons}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </button>
-        )}
-      </div>
-    </Modal>
+      </Modal>
+    </Mount>
   )
 }
 
