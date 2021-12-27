@@ -1,19 +1,26 @@
 {
   "name": "unstyled-lightbox",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple Unstyled Modals and Lightbox for React",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/typings/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.modern.js",
+  "unpkg": "./dist/index.umd.js",
+  "types": "./dist/typings/index.d.ts",
   "repository": "TheBoringDude/unstyled-lightbox",
+  "exports": {
+    ".": {
+      "import": "./dist/index.modern.js",
+      "require": "./dist/index.js",
+      "types": "./dist/typings/index.d.ts"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "huskyinstall": "husky install",
     "precommit": "lint-staged",
-    "pack": "npm run build && npm pack",
+    "prepack": "npm run build",
     "prepublishOnly": "npm run build",
     "build": "cross-env NODE_ENV=production && rm -rf dist && rollup -c"
   },
