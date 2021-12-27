@@ -47,7 +47,10 @@ const Modal = (props: ModalProps) => {
 
   const el = useMemo(
     () =>
-      typeof window === 'undefined' ? null : document.createElement('div'),
+      // Check if window / document is undefined which could cause issue in server-side renders.
+      typeof window === 'undefined' || typeof document === 'undefined'
+        ? null
+        : document.createElement('div'),
     []
   )
 
